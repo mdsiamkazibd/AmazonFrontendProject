@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+.amazon-header-section{
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ 
+    
+}
+.amazon-mobile-logo{
+    display: none;
+}
+.header-left-section{
+    width: 140px;
+    display: flex;
+    padding-top: 10px;
+    padding-left: 20px;
+
+}
+
+.amazon-logo-white{
+    width: 105px;
+}
+@media (max-width:575px){
+    .header-left-section{
+        width: 50px;
+    }
+    .amazon-logo-white{
+        display: none;
+    }
+    .amazon-mobile-logo{
+        display: block;
+        height: 40px;
+    }
+}
+.header-middle-section{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-middle-section input{
+    flex:1;
+    width: 0;
+    border: none;
+    height: 30px;
+    max-width: 700px;
+    border-radius: 5px 0 0 5px;
+    padding: 5px;
+    font-size: 16px;
+    padding-left: 20px;
+}
+.header-middle-section button{
+    flex-shrink: 0;
+    height: 40px;
+    border: none;
+    background-color: rgb(221, 221, 12);
+    border-radius: 0 5px 5px 0;
+}
+.search-icon{
+    height: 20px;
+    padding: 10px;
+
+}
+.header-right-section{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+    width: 170px;
+    margin-left: 20px;
+    text-decoration: none;
+    margin-right: 5px;
+}
+.return-order-link{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+}
+.header-order-link{
+    font-size: 16px;
+    font-weight: 900;
+}
+.amazon-cart-icon{
+    position: relative;
+    text-decoration: none;
+    
+}
+.cart-link{
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+
+    
+}
+.cart-link img{
+    height: 30px;
+    
+}
+.cart-quantity{
+    position: absolute;
+    color: rgb(231, 102, 102);
+    font-weight: bold;
+    font-family: monospace;
+    left: 20px;
+    top: -3px;
+    font-size: 20px;
+}
+
+    

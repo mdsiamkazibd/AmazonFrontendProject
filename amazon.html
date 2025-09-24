@@ -4,24 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Amazon</title>
+   
+     <link rel="stylesheet" href="style/amazonheader.css">
 </head>
 <body>
+                         <!-- Amazon Header Section -->
     <div class="amazon-header-section">
-        <div class="header-section">
+        
             <div class="header-left-section">
-                <img src="images/amazon-logo-white.png" class="amazon-logo-white">
-                <img src="images/amazon-mobile-logo-white.png" class="amazon-mobile-logo">
+                <div class="amazon-header-link">
+                    <img src="images/amazon-logo-white.png" class="amazon-logo-white">
+                    <img src="images/amazon-mobile-logo-white.png" class="amazon-mobile-logo">
+                </div>
             </div>
             <div class="header-middle-section">
                 <input type="text" placeholder="Search">
-                <button><img src="images/icons/search-icon.png"></button>
+                <button><img src="images/icons/search-icon.png" class="search-icon"></button>
             </div>
             <div class="header-right-section">
-                <img src="images/icons/cart-icon.png">
-                <span class="cart-quantity">0</span>
+                <div class="amazon-return-btn">
+                    <a href="#" class="return-order-link">
+                        <span class="header-return-link">Returns<br></span>
+                        <span class="header-order-link">& Orders</span>
+                    </a>
+                </div>
+                <div class="amazon-cart-icon">
+                    <a class="cart-link" href="#">
+                        <img src="images/icons/cart-icon.png">
+                        <span class="cart-quantity">0</span>
+                        <span class="cart-text">Cart</span>
+                    </a>
+                </div>
             </div>
-        </div>
+        
     </div>
+    <!-- Amazon header section end -->
     <script src="script/amazon.js"></script>
 </body>
 </html>
