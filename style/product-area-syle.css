@@ -1,0 +1,141 @@
+body{
+    font-family: Roboto,Arial;
+   
+.products-grid{
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+}
+@media (max-width: 2000px) {
+  .products-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+@media (max-width: 1600px) {
+  .products-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 1300px) {
+  .products-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+}
+.product-card{
+      padding-top: 40px;
+        padding-bottom: 25px;
+        padding-left: 25px;
+        padding-right: 25px;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+.product-img{
+    
+    height: 180px;
+    
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+.product-img img{
+    max-width: 100%;
+    max-height: 100%;
+ 
+    
+}
+.product-name{
+    font-size: 17px;
+     overflow: hidden;
+     height: 40px;
+
+    margin-bottom: 10px;
+}
+.product-rating{
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    font-size: 17px;
+    gap: 3px;
+    color: #c9a2a2;
+    margin-bottom: 10px;
+}
+.product-rating img {
+    width: 100px;
+}
+.product-price{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.order-quantity{
+    margin-bottom: 17px;
+}
+.product-order-select{
+    height: 30px;
+    width: 50px;
+    border-radius: 7px;
+    font-family: Roboto,arial;
+    font-size: 16px;
+    padding-left: 4px;
+    border: 1px solid #ddd;
+}
+.product-spacing{
+    flex: 1;
+}
+.added-to-cart{
+    opacity: 0;
+    display: inline;
+    background-color: rgb(165, 253, 125);
+    border-radius: 8px;
+    height: 30px;
+    width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 3px;
+}
+.add-cart-btn{
+    height: 35px;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(126, 231, 27);
+    font-size: 14px;
+}
