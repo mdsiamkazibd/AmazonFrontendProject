@@ -8,6 +8,7 @@ let cartQuantity = document.querySelector(".cart-quantity");
 let productArea = document.querySelector(".products-grid");
 
 //Product suffle for random
+//Fisher yates suffle algo.
 for(let i = products.length-1;i>0;i--){
    const j = Math.floor(Math.random() * (i + 1));
    [products[i],products[j]] = [products[j],products[i]];
@@ -62,30 +63,53 @@ const cartUpdate = (value) =>{
        cartQuantity.innerText = cartValue+orderQ;
 }
 
+//Cart item Array Function
 
-btns.forEach((btn,index)=>{
-   btn.addEventListener("click",()=>{
-
-
-      cartUpdate(selectOption[index].value);
-
-      const productId = btn.dataset.productId;
-      console.log(productId);
-
+const cartitemarray = (productId , quantityValue) => {
+   let matchingitem;
       if(cart.length === 0){
          cart.push(
          {
                id:productId,
-               quantity:selectOption[index].vlaue,
+               quantity:+quantityValue,
          }
 
          )
       }
+      else{
+        
+        cart.forEach((i) => {
+            if(i.id === productId){
+                matchingitem = i;
+            }
+        })
+           if(matchingitem){
+        matchingitem.quantity += +quantityValue;
+      }
+      else{
+        cart.push(
+            {
+                id:productId,
+                quantity:+quantityValue,
+            }
+        )
+      }
+      }
       
+      console.log(cart);
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+}
 
 
-
-
-   })
+btns.forEach((btn,index)=>{
+   btn.addEventListener("click",()=>{
+    //cartUpdate Funcation Call.
+        cartUpdate(selectOption[index].value);
+        const productId = btn.dataset.productId;
+    //Cartitemarray Fucntion Call for add product to the cart array.
+        cartitemarray(productId,selectOption[index].value);
+    })
 
 })
+

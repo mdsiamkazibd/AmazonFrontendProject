@@ -57,6 +57,7 @@
     padding: 5px;
     font-size: 16px;
     padding-left: 20px;
+    outline: none;
 }
 .header-middle-section button{
     flex-shrink: 0;
@@ -93,6 +94,7 @@
 .amazon-cart-icon{
     position: relative;
     text-decoration: none;
+    padding: 5px;
     
 }
 .cart-link{
@@ -107,13 +109,18 @@
     height: 30px;
     
 }
+.amazon-cart-icon:hover{
+    border: 2px solid #ddd;
+    border-radius: 5px;
+
+}
 .cart-quantity{
     position: absolute;
     color: rgb(231, 102, 102);
     font-weight: bold;
     font-family: monospace;
-    left: 19px;
-    top: -3px;
+    left: 27px;
+    top: 1px;
     font-size: 15px;
 }
 
