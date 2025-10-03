@@ -60,7 +60,7 @@ cart.forEach((cartproduct) => {
                 <div class="delivery-option">
                   <input type="radio" checked
                     class="delivery-option-input"
-                    name="${matchingproduct.id}"  value = "0">
+                    name="${matchingproduct.id}"  value = "0.00">
                   <div>
                     <div class="delivery-option-date">
                       Tuesday, June 21
@@ -153,7 +153,7 @@ const totalall_productcost = document.querySelector('.total-all-products-cost')
 
 export const updatepaymentsummaryhtml =  (totalprice,totaldelivarycost,totalbeforetax,estimatedtax,totalallproductscost) => {
     totalproductprice.innerText = `$${money(totalprice/100)}`;
-    totalproductdelivarycost.innerText = `$${money(totaldelivarycost)}`;
+    totalproductdelivarycost.innerText = `$${money(totaldelivarycost/100)}`;
     producttaxcost.innerText = `$${money(estimatedtax/100)}`;
     beforeaddingtax.innerText = `$${money(totalbeforetax/100)}`;
     totalall_productcost.innerText = `$${money(totalallproductscost/100)}`
@@ -178,8 +178,12 @@ export const updatepaymentsummary = (updatehtml) => {
   const delivarycost = document.querySelectorAll(`input[name="${cartproduct.id}"]`);
   let delivaryproductcost;
   delivarycost.forEach((delivaryoption) => {
+       delivaryoption.addEventListener('change',() => {
+        updatepaymentsummary();
+        console.log(+delivaryoption.value)
+       })
        if(delivaryoption.checked){
-          delivaryproductcost = +delivaryoption.value;
+          delivaryproductcost = +delivaryoption.value * 100;
        }
   
   })

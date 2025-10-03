@@ -8,6 +8,7 @@ import {money} from './money/money.js';
 let cartQuantity = document.querySelector(".cart-quantity");
 let productArea = document.querySelector(".products-grid");
 
+cartQuantity.innerText = cartUpdate();
 //Product suffle for random
 //Fisher yates suffle algo.
 for(let i = products.length-1;i>0;i--){
@@ -65,10 +66,11 @@ btns.forEach((btn,index)=>{
    btn.addEventListener("click",()=>{
     //cartUpdate Funcation Call.
         
-        cartUpdate(selectOption[index].value,cartQuantity);
+        
         const productId = btn.dataset.productId;
     //Cartitemarray Fucntion Call for add product to the cart array.
         cartitemarray(productId,selectOption[index].value);
+        cartQuantity.innerText = cartUpdate();
 
         addcart[index].style.opacity =1;
         setTimeout(() => {

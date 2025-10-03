@@ -19,13 +19,12 @@ const savecarttolocal = () => {
 }
 
 //CartUpdate Function
-export const cartUpdate = (value,cartQuantity) =>{
-       let orderQ = +value;
-       let cartValue= +cartQuantity.innerText;
-       let totalcart = cartValue+orderQ;
-       
-       cartQuantity.innerText = totalcart;
-       
+export const cartUpdate = () =>{
+      let carttotal = 0;
+      cart.forEach((cartitem) => {
+        carttotal += cartitem.quantity;
+      }) 
+    return carttotal;
 }
 
 //Cart item Array Function
