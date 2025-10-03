@@ -159,7 +159,7 @@ export const updatepaymentsummaryhtml =  (totalprice,totaldelivarycost,totalbefo
     totalall_productcost.innerText = `$${money(totalallproductscost/100)}`
 }
 
-export const updatepaymentsummary = (updatehtml) => {
+export const updatepaymentsummary = () => {
   let totalprice  = 0;
   let totaldelivarycost = 0;
   let totalbeforetax = 0;
