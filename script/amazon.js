@@ -1,5 +1,6 @@
-import { cart } from "../data/cart.js";
+import { cart,cartUpdate,cartitemarray} from "../data/cart.js";
 import { products } from "../data/products.js";
+import {money} from './money/money.js';
 
 
 //Access Cart Quantity
@@ -30,7 +31,7 @@ products.forEach((product) => {
                 <span class="rating-quantity">${product.rating.count}</span>
             </div>
             <div class="product-price">
-                $${(product.priceCents / 100).toFixed(2)}
+                $${money(product.priceCents/100)}
             </div>
             <div class="order-quantity">
                 <select class="product-order-select">
@@ -42,7 +43,7 @@ products.forEach((product) => {
                 </select>
             </div>
             <div class="product-spacing"></div>
-            <div class="added-to-cart">Added To Cart</div>
+            <div class="added-to-cart"><img src= "images/icons/checkmark.png">Added To Cart</div>
 
             
             <button class="add-cart-btn" data-product-id = "${product.id}">Add to Cart</button>
@@ -51,64 +52,29 @@ products.forEach((product) => {
 productArea.innerHTML = productCard;
 
 
-//Adding Cart Interactivity
-
 let btns = document.querySelectorAll(".add-cart-btn");
 let selectOption = document.querySelectorAll(".product-order-select");
 
-//CartUpdate Function
-const cartUpdate = (value) =>{
-       let orderQ = +value;
-       let cartValue= +cartQuantity.innerText;
-       cartQuantity.innerText = cartValue+orderQ;
-}
-
-//Cart item Array Function
-
-const cartitemarray = (productId , quantityValue) => {
-   let matchingitem;
-      if(cart.length === 0){
-         cart.push(
-         {
-               id:productId,
-               quantity:+quantityValue,
-         }
-
-         )
-      }
-      else{
-        
-        cart.forEach((i) => {
-            if(i.id === productId){
-                matchingitem = i;
-            }
-        })
-           if(matchingitem){
-        matchingitem.quantity += +quantityValue;
-      }
-      else{
-        cart.push(
-            {
-                id:productId,
-                quantity:+quantityValue,
-            }
-        )
-      }
-      }
-      
-      console.log(cart);
-      localStorage.setItem("cart", JSON.stringify(cart));
-
-}
 
 
+
+let addcart = document.querySelectorAll(".added-to-cart")
+
+//Add to cart button activity function.
 btns.forEach((btn,index)=>{
    btn.addEventListener("click",()=>{
     //cartUpdate Funcation Call.
-        cartUpdate(selectOption[index].value);
+        cartUpdate(selectOption[index].value,cartQuantity);
         const productId = btn.dataset.productId;
     //Cartitemarray Fucntion Call for add product to the cart array.
         cartitemarray(productId,selectOption[index].value);
+
+        addcart[index].style.opacity =1;
+        setTimeout(() => {
+            addcart[index].style.opacity = 0;
+        },2000)
+        selectOption[index].value = 1;
+
     })
 
 })
