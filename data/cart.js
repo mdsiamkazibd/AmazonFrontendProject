@@ -1,19 +1,31 @@
-export let cart= [
-    {
-        id:'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
-        quantity:2,
-    },
-    {
-        id:'15b6fc6f-327a-4ec4-896f-486349e85a3d',
-        quantity:2,
-    }
-];
+
+export let cart= JSON.parse(localStorage.getItem('cart'));
+
+
+if(!cart){
+    cart = [
+        {
+            id: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
+            quantity:4,
+            
+        }
+    ]
+}
+
+//save the cart to localstorage
+
+const savecarttolocal = () => {
+    localStorage.setItem('cart',JSON.stringify(cart));
+}
 
 //CartUpdate Function
 export const cartUpdate = (value,cartQuantity) =>{
        let orderQ = +value;
        let cartValue= +cartQuantity.innerText;
-       cartQuantity.innerText = cartValue+orderQ;
+       let totalcart = cartValue+orderQ;
+       
+       cartQuantity.innerText = totalcart;
+       
 }
 
 //Cart item Array Function
@@ -49,7 +61,7 @@ export const cartitemarray = (productId , quantityValue) => {
       }
       }
       
-      console.log(cart);
+      savecarttolocal();
       
 
 }
@@ -64,5 +76,8 @@ export const deletecart_item = (productId) => {
             }
         })
         cart = tempcart;
-        console.log(cart)
+        savecarttolocal()
+        
+        
+
 }

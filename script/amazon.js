@@ -64,6 +64,7 @@ let addcart = document.querySelectorAll(".added-to-cart")
 btns.forEach((btn,index)=>{
    btn.addEventListener("click",()=>{
     //cartUpdate Funcation Call.
+        
         cartUpdate(selectOption[index].value,cartQuantity);
         const productId = btn.dataset.productId;
     //Cartitemarray Fucntion Call for add product to the cart array.
